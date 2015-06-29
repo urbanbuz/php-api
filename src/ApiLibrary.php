@@ -6,10 +6,6 @@ class ApiLibrary
 {
 
     const DEFAULT_USESSL = true;
-    const DEFAULT_HEADERS = array(
-        'Content-Type: application/json',
-        'Accept: application/json'
-    );
     const VERSION = '3.0';
     const PREFIX = 'oauth_';
 
@@ -24,7 +20,7 @@ class ApiLibrary
 	    $apiKey,
 	    $apiSecret,
 	    $useSsl = self::DEFAULT_USESSL,
-	    $headers = self::DEFAULT_HEADERS)
+	    $headers = array('Content-Type: application/json', 'Accept: application/json'))
 	{
 		$this->host = $host;
 		$this->apiKey = $apiKey;

@@ -17,6 +17,12 @@ class UrbanBuz
         $this->apiLibrary = new ApiLibrary($host, $apiKey, $apiSecret, $useSsl);
     }
 
+    public function heartbeat()
+    {
+        $response = $this->apiLibrary->call('heartbeat');
+        return json_decode(json_decode($response)->data)->heartbeat == "success";
+    }
+
     public function login($email, $password)
     {
         $args = array(
@@ -25,6 +31,34 @@ class UrbanBuz
         );
         $response = $this->apiLibrary->call('login', $args);
         $userStatus = UserStatus::model()->fromJSON($response);
-        var_dump($userStatus);
+        return $userStatus;
+    }
+
+    public function signup($user)
+    {
+        $response = $this->apiLibrary->call('signup', $user);
+        $userStatus = UserStatus::model()->fromJSON($response);
+        return $userStatus;
+    }
+
+    public function update($source, $user)
+    {
+        $response = $this->apiLibrary->call('update', array_merge(array('source'=>$source), $user));
+        $userStatus = UserStatus::model()->fromJSON($response);
+        return $userStatus;
+    }
+
+    public function findUserByToken($token)
+    {
+        $response = $this->apiLibrary->call('findUserByToken', array('token'=>$token));
+        $userStatus = UserStatus::model()->fromJSON($response);
+        return $userStatus;
+    }
+
+    public function updateUserByToken($token, $user)
+    {
+        $response = $this->apiLibrary->call('updateUserByToken', array_merge(array('token'=>$token), $user));
+        $userStatus = UserStatus::model()->fromJSON($response);
+        return $userStatus;
     }
 }
