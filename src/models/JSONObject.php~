@@ -1,0 +1,12 @@
+<?php
+
+namespace UrbanBuz\API\models;
+
+class Model
+{
+
+    public static function fromJSON($data)
+    {
+        
+    }
+}

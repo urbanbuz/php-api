@@ -1,0 +1,23 @@
+{
+    "name": "urbanbuz/api",
+    "description": "Library for UrbanBuz API.",
+    "license": "MIT",
+    "keywords": ["urbanbuz"],
+    "authors": [
+        {
+            "name": "Jad Hajj Obeid",
+            "email": "jad@urbanbuz.com"
+        }
+    ],
+    "require": {
+        
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "UrbanBuz\\API\\": "src"
+        }
+    }
+}

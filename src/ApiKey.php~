@@ -1,0 +1,23 @@
+<?php
+namespace UrbanBuz\API;
+
+class ApiKey
+{
+
+    protected $key;
+
+    protected $secret;
+
+    public function __construct($key, $secret)
+    {
+        $this->key = (string) $key;
+        $this->secret = (string) $secret;
+    }
+
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    
+}
